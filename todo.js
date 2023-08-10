@@ -1,14 +1,21 @@
 let listView = document.querySelector(".list");
 
+let todoList = [...JSON.parse(localStorage.getItem("todoList"))];
+
 function countListItems() {
     document.querySelector("#listCount").innerText = listView.childElementCount;
 }
 
-function addItem(e){
+function addItem(e, check=false, textData="") {
     e.preventDefault();
 
     let textVal = document.querySelector("#text").value;
     
+    if (textVal.length){
+        todoList.push({checked: check, text: textVal});
+        localStorage.setItem("todoList", JSON.stringify(todoList));
+    }
+
     let listItem = document.createElement("div");
     listItem.setAttribute("class", "list-item");
     
@@ -19,7 +26,13 @@ function addItem(e){
     icon.className = "bx bx-checkbox";
     state.appendChild(icon);
     
-    state.onclick = function(){
+    state.onclick = completedTask;
+    
+    if(check){
+        completedTask();
+    }
+
+    function completedTask(){
         state.classList.toggle("checked");
 
         if(state.classList.contains("checked")){
@@ -28,11 +41,19 @@ function addItem(e){
             state.innerHTML = "<i class='bx bx-checkbox'></i>";
         }
     }
-
     
     let text = document.createElement("div");
     text.className = "text";
-    text.innerText = textVal;
+    
+    if (textData.length){
+        text.innerText = textData;
+    }else if(textVal.length){
+        text.innerText = textVal;
+    }
+    
+    text.onclick = function(){
+        text.parentElement.classList.toggle("opened");
+    }
 
     let delBtn = document.createElement("div");
     delBtn.className = "delBtn icon";
@@ -54,4 +75,15 @@ function addItem(e){
     countListItems();
 
     document.forms[0].reset();
+}
+
+window.onload = function () {
+    let todoList = localStorage.getItem("todoList");
+    todoList = JSON.parse(todoList);
+
+    todoList.forEach(item => {
+        let check = item.checked;
+        let t = item.text;
+        addItem(event, check, t);
+    });
 }

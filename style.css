@@ -52,6 +52,14 @@ body {
     align-items: stretch;
 }
 
+.list-item.opened {
+    align-items: start;
+}
+
+.list-item.opened .text{
+    white-space: pre-wrap;
+}
+
 .icon {
     width: 50px;
     aspect-ratio: 1;
@@ -87,13 +95,13 @@ body {
 }
 
 .list-item .text{
-    align-items: center;
     font-size: 20px;
     line-height: 2.5;
     vertical-align: middle;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    cursor: pointer;
 }
 
 form :is(input, button){
