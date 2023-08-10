@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: whitesmoke;
+    background-color: #fff;
     padding: 16px;
     display: grid;
     place-items: center;
@@ -48,9 +48,8 @@ body {
     grid-template-columns: max-content auto max-content;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    border: 1px solid #ddd;
     align-items: stretch;
-    gap: 8px;
 }
 
 .icon {
@@ -62,6 +61,7 @@ body {
 
 .state{
     font-size: 30px;
+    color: #222;
 }
 
 .delBtn {
@@ -74,7 +74,6 @@ body {
     width: 20px;
     aspect-ratio: 1;
     border-radius: 4px;
-    background-color: rgb(190, 230, 255);
 }
 
 .state.checked{
@@ -83,8 +82,8 @@ body {
 
 .list-item:has(.checked) .text{
     text-decoration: line-through;
-    text-decoration-color: red;
-    color: #888;
+    text-decoration-color: tomato;
+    color: #555;
 }
 
 .list-item .text{
@@ -101,29 +100,19 @@ form :is(input, button){
     padding: 12px;
     width: 100%;
     outline: transparent;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
     font-size: 18px;
     letter-spacing: 1px;
 }
 
 form button{
-    background-color: seagreen;
+    background-color: #222;
     color: white;
     width: 80px;
 }
 
 form button:active{
-    background-color: rgba(46, 139, 86, 0.791);
-}
-
-input[type="submit"] {
-    background-color: white;
-    color: #111;
-    width: 60px;
-    aspect-ratio: 1;
-    font-size: 24px;
-    border-radius: 50%;
+    background-color: #555;
 }
