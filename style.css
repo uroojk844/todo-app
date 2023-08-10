@@ -1,0 +1,129 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: whitesmoke;
+    padding: 16px;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+.frame {
+    display: grid;
+    grid-template-rows: max-content calc(100vh - 180px) max-content;
+    gap: 16px;
+    height: 100%;
+    width: min(600px, 100%);
+}
+
+.frame .heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 16px 0 16px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.frame .bottomBar{
+    display: grid;
+    grid-template-columns: auto max-content;
+    gap: 16px;
+    align-items: center;
+}
+
+.list {
+    overflow-y: auto;
+    display: grid;
+    align-content: start;
+    gap: 16px;
+}
+
+.list-item {
+    display: grid;
+    grid-template-columns: max-content auto max-content;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    align-items: stretch;
+    gap: 8px;
+}
+
+.icon {
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+}
+
+.state{
+    font-size: 30px;
+}
+
+.delBtn {
+    font-size: 24px;
+    color: tomato;
+}
+
+.list-item input{
+    appearance: none;
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    background-color: rgb(190, 230, 255);
+}
+
+.state.checked{
+    color: rgb(102, 175, 102);
+}
+
+.list-item:has(.checked) .text{
+    text-decoration: line-through;
+    text-decoration-color: red;
+    color: #888;
+}
+
+.list-item .text{
+    align-items: center;
+    font-size: 20px;
+    line-height: 2.5;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+form :is(input, button){
+    padding: 12px;
+    width: 100%;
+    outline: transparent;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+form button{
+    background-color: seagreen;
+    color: white;
+    width: 80px;
+}
+
+form button:active{
+    background-color: rgba(46, 139, 86, 0.791);
+}
+
+input[type="submit"] {
+    background-color: white;
+    color: #111;
+    width: 60px;
+    aspect-ratio: 1;
+    font-size: 24px;
+    border-radius: 50%;
+}
